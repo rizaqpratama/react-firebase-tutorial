@@ -6,11 +6,13 @@ import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import { Form, Button } from "semantic-ui-react";
 import { SignUpLink } from "../SignUp";
+import { PasswordForgetLink } from "../PasswordForget";
 
 const SignInPage = () => (
   <Container>
     <h1>Sign In</h1>
     <SignInForm />
+    <PasswordForgetLink />
     <SignUpLink />
   </Container>
 );
