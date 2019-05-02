@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { FirebaseContext, withFirebase } from '../Firebase'
-
+import { Button, Form } from 'semantic-ui-react'
 import * as ROUTES from '../../constants/routes'
 import { compose } from 'recompose';
 
@@ -61,39 +61,55 @@ class SignUpFormBase extends Component {
             email === '' ||
             username === ''
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name='username'
-                    value={username}
-                    onChange={this.onChange}
-                    type='text'
-                    placeholder='Full Name'
-                />
-                <input
-                    name='email'
-                    value={email}
-                    onChange={this.onChange}
-                    type='email'
-                    placeholder='Email Address'
-                />
-                <input
-                    name='passwordOne'
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type='password'
-                    placeholder='Password'
-                />
-                <input
-                    name='passwordTwo'
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type='password'
-                    placeholder='Confirm Password'
-                />
-                <button disabled={isInvalid} type='submit'>Sign Up</button>
+            <Form onSubmit={this.onSubmit}>
+                <Form.Field>
+                    <label>Full Name</label>
+                    <input
+                        name='username'
+                        value={username}
+                        onChange={this.onChange}
+                        type='text'
+                        placeholder='Full Name'
+                    />
+                </Form.Field>
+
+                <Form.Field>
+                    <label>Email</label>
+                    <input
+                        name='email'
+                        value={email}
+                        onChange={this.onChange}
+                        type='email'
+                        placeholder='Email Address'
+                    />
+                </Form.Field>
+
+                <Form.Field>
+                    <label>Pasword</label>
+                    <input
+                        name='passwordOne'
+                        value={passwordOne}
+                        onChange={this.onChange}
+                        type='password'
+                        placeholder='Password'
+                    />
+                </Form.Field>
+                <Form.Field>
+                    <label>Confirm Password</label>
+                    <input
+                        name='passwordTwo'
+                        value={passwordTwo}
+                        onChange={this.onChange}
+                        type='password'
+                        placeholder='Confirm Password'
+                    />
+                </Form.Field>
+
+
+                <Button disabled={isInvalid} type='submit'>Sign Up</Button>
 
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>
         )
     }
 }
